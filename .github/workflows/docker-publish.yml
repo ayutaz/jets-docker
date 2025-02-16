@@ -24,6 +24,10 @@ jobs:
         run: |
           docker build -t ayousanz/espnet-jets:latest .
 
+      - name: Confirm Docker Image
+        run: |
+          docker images
+
       - name: Push Docker Image
         run: |
           docker push ayousanz/espnet-jets:latest

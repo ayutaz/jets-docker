@@ -1,12 +1,30 @@
 # espnetのjetsを動かす
 
-1. jetsを動かすためのRepositoryをclone 
+<!-- TOC -->
+* [espnetのjetsを動かす](#espnetのjetsを動かす)
+  * [1 jetsを動かすためのRepositoryをclone](#1-jetsを動かすためのrepositoryをclone)
+  * [2 Docker Imageの準備](#2-docker-imageの準備)
+    * [2.1 独自でビルド](#21-独自でビルド)
+    * [2.2 DockerHubからpull](#22-dockerhubからpull)
+  * [3 jetsの実行](#3-jetsの実行)
+* [memo](#memo)
+  * [kaliのバージョン](#kaliのバージョン)
+  * [追加でインストールが必要だったのもの](#追加でインストールが必要だったのもの)
+  * [推論のメモ](#推論のメモ)
+* [FAQ](#faq)
+<!-- TOC -->
+
+## 1 jetsを動かすためのRepositoryをclone
+
 ```sh
 git clone https://github.com/ayutaz/espnet.git
 cd .\espnet\
 git checkout -b jets origin/jets
 ```
 
+## 2 Docker Imageの準備
+
+### 2.1 独自でビルド
 **docker build**
 ```bash
 docker build -t espnet-jets .
@@ -16,6 +34,18 @@ docker build -t espnet-jets .
 ```bash
 docker run -it --rm -v "${PWD}:/work" espnet-jets bash
 ```
+
+### 2.2 DockerHubからpull
+
+[ayousanz/espnet-jets](https://hub.docker.com/repository/docker/ayousanz/espnet-jets/general)にビルド済みのイメージがあるのでpullして使用することができます。
+
+```bash
+docker pull ayutaz/espnet-jets:latest
+docker run -it --rm -v "${PWD}:/work" ayutaz/espnet-jets:latest bash
+```
+
+## 3 jetsの実行
+
 
 **コンテナ内でインストール**
 ```bash
@@ -47,7 +77,7 @@ pip install espnet_model_zoo
 python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"
 ```
 
-# 推論
+##  推論のメモ
 
 推論後に音声は以下のパスに保存される
 ```sh
