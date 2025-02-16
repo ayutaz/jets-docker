@@ -3,7 +3,7 @@
 1. jetsを動かすためのRepositoryをclone 
 ```sh
 git clone https://github.com/ayutaz/espnet.git
- cd .\espnet\
+cd .\espnet\
 git checkout -b jets origin/jets
 ```
 
