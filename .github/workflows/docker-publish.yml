@@ -22,7 +22,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ayousanz/espnet-jets:latest .
+          docker build --no-cache -t ayousanz/espnet-jets:latest .
 
       - name: Confirm Docker Image
         run: |
