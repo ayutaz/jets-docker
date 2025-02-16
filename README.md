@@ -58,3 +58,11 @@ python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"
 ```sh
 cat dump/raw/org/tr_no_dev/logs/format_wav_scp.*.log
 ```
+
+# FAQ
+* `/usr/bin/env: 'bash\r': No such file or directory` と出た場合は改行コードをLFに変更する
+
+```sh
+apt-get update && apt-get install -y dos2unix
+find . -type f \( -iname "*.sh" -o -iname "*.py" -o -iname "*.pl" \) -exec dos2unix {} +
+```
