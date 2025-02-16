@@ -1,11 +1,30 @@
 # espnetのjetsを動かす
 
+1. jetsを動かすためのRepositoryをclone 
+```sh
+git clone https://github.com/ayutaz/espnet.git
+git checkout -b jets origin/jets
+```
+
+**docker build**
 ```bash
 docker build -t espnet-jets .
 ```
 
+**docker run**
 ```bash
 docker run -it --rm -v "${PWD}:/work" espnet-jets bash
+```
+
+**コンテナ内でインストール**
+```bash
+pip install -e .
+cd egs2/ljspeech/tts1
+```
+
+**infer**
+```bash
+./run.sh --skip_data_prep false --skip_train true --download_model imdanboy/jets
 ```
 
 # memo
@@ -18,11 +37,23 @@ docker run -it --rm -v "${PWD}:/work" espnet-jets bash
 ## 追加でインストールが必要だったのもの
 
 ```sh
-pip install kaldiio humanfriendly numpy resampy soundfile tqdm typeguard==2.7.1 inflect==5.0.3 matplotlib espnet_model_zoo
+pip install espnet_model_zoo
 ```
 
 モデルのダウンロード
 
 ```sh
 python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"
+```
+
+# 推論
+
+推論後に音声は以下のパスに保存される
+```sh
+/work/espnet/egs2/ljspeech/tts1/exp/imdanboy/jets/decode_train.loss.ave/dev/log/output.XX
+```
+
+推論時のログを見るコマンド
+```sh
+cat dump/raw/org/tr_no_dev/logs/format_wav_scp.*.log
 ```

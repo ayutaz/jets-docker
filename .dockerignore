@@ -1,0 +1,11 @@
+espnet/.git
+espnet/test
+espnet/test_utils
+espnet/.github
+**/.git
+**/.gitignore
+**/README.md
+**/LICENSE
+**/docs
+**/tests
+espnet/.git/**
