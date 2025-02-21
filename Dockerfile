@@ -40,7 +40,10 @@ RUN python -m pip install \
     matplotlib==3.7.5 \
     typeguard==2.7.1 \
     inflect==5.0.3 \
-    espnet_model_zoo==0.1.7
+    espnet_model_zoo==0.1.7 \
+    tensorboard==2.14.0 \
+    Pillow==9.5.0 \
+    wandb==0.19.4
 
 # 必要な NLTK リソースのダウンロード（同じ Python 環境内で実行）
 RUN python -c "import nltk; nltk.download('averaged_perceptron_tagger_eng')"

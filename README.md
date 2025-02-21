@@ -44,7 +44,7 @@ docker run -it --rm -v "${PWD}:/work" espnet-jets bash
 
 ```bash
 docker pull ayutaz/espnet-jets:latest
-docker run -it --rm -v "${PWD}:/work" ayutaz/espnet-jets:latest bash
+docker run -it --shm-size=20g --gpus all --rm -v "${PWD}:/work" ayousanz/espnet-jets:latest bash
 ```
 
 ## 3 jetsの実行
@@ -59,6 +59,18 @@ cd egs2/ljspeech/tts1
 **infer**
 ```bash
 ./run.sh --skip_data_prep false --skip_train true --download_model imdanboy/jets
+```
+
+**train**
+
+```bash
+./run.sh --train_config conf/tuning/train_jets.yaml --tts_task gan_tts --stage 1 --stop_stage 7 --ngpu 1
+```
+
+epoch数などのパラメータを変更したい場合は、以下をオプションにつける
+
+```bash
+--train_args "--max_epoch 1 --num_iters_per_epoch 30"
 ```
 
 # memo
