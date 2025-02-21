@@ -36,7 +36,7 @@ docker build -t espnet-jets .
 
 **docker run**
 ```bash
-docker run -it --rm -v "${PWD}:/work" espnet-jets bash
+docker run -it --shm-size=20g --gpus all --rm -v "${PWD}:/work" espnet-jets bash
 ```
 
 ### 2.2 DockerHubからpull
