@@ -22,7 +22,8 @@ cd .\espnet\
 git checkout -b jets origin/jets
 cd .\tools\
 git clone https://github.com/ayutaz/kaldi.git
-git checkout jets origin/jets
+cd .\kaldi\
+git checkout -b jets origin/jets
 ```
 
 ## 2 Docker Imageの準備
