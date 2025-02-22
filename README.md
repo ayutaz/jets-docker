@@ -93,6 +93,12 @@ epoch数などのパラメータを変更したい場合は、以下をオプシ
 cat dump/raw/org/tr_no_dev/logs/format_wav_scp.*.log
 ```
 
+tensorboardでログを確認
+```sh
+cd jets-docker/espnet/egs2/ljspeech/tts1/exp/tts_train_jets_raw_phn_tacotron_g2p_en_no_space/
+tensorboard --logdir tensorboard/
+```
+
 # FAQ
 * `/usr/bin/env: 'bash\r': No such file or directory` と出た場合は改行コードをLFに変更する
 
