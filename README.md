@@ -74,6 +74,12 @@ epoch数などのパラメータを変更したい場合は、以下をオプシ
 --train_args "--max_epoch 1 --num_iters_per_epoch 30"
 ```
 
+学習後のモデルで推論を行うコマンド
+
+```sh
+./run.sh --skip_data_prep true --skip_train true --stage 7 --stop_stage 7 --tts_exp exp/tts_train_jets_raw_phn_tacotron_g2p_en_no_space --inference_model train.total_count.ave.pth --tts_task gan_tts
+``` 
+
 # memo
 
 ## kaliのバージョン
